@@ -1,7 +1,6 @@
-# s4-fiori-model-analyzer
-Fiori Programming Model Analyzer for S/4HANA
-
 # Fiori Programming Model Analyzer for S/4HANA – Viewer
+
+[![Run locally](https://img.shields.io/badge/npm-start-green?logo=npm)](#run-locally)
 
 This repository contains the **Viewer App** of the **Fiori Programming Model Analyzer for S/4HANA**.  
 It is a static **SAPUI5 application** to explore and filter
@@ -30,5 +29,17 @@ This Viewer lets you **browse, filter, and explore** the results in a user-frien
 - 📊 Tabular view built with **sap.ui.table.Table**  
 - 🔗 Direct link to the Fiori Apps Library entry  
 - 📥 Downloadable CSV/JSON datasets (see `/docs/data/`)
+
+## Run locally
+
+You can run the Viewer locally using Node.js:
+
+```bash
+# install dependencies (only once)
+npm install
+
+# start local static server on http://localhost:3000
+npm start
+
 
 
