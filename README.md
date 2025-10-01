@@ -17,6 +17,7 @@ As ABAP/Fiori developers we often ask ourselves:
 - *Is this standard Fiori app SEGW, BOPF, or RAP?*  
 - *Which CDS entity or Business Object is behind it?*  
 - *Is it enhanced with Flexible Programming Model?*  
+- *What is the name of the SEGW Project?*  
 
 This Viewer lets you **browse, filter, and explore** the results in a user-friendly way.
 
