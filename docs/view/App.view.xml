@@ -12,6 +12,7 @@
           </contentMiddle>
         </Bar>
       </customHeader>
+      
       <VBox class="sapUiSmallMargin">
         <!-- Preview Notice Banner -->
         <MessageStrip
@@ -36,7 +37,7 @@
           <Label text="Prog. Model:"/>
           <Select id="selProgModel" change="onFilter" width="150px">
             <core:Item key="" text="All"/>
-            <core:Item key="N/A" text="N/A"/>
+            <core:Item key="SEGW Free Style" text="SEGW Free Style"/>
             <core:Item key="BOPF" text="BOPF"/>
             <core:Item key="RAP" text="RAP"/>
           </Select>
@@ -46,7 +47,18 @@
           <ToolbarSpacer width="1rem"/>
           <Button text="Clear" press="onClear"/>
         </Toolbar>
-        <t:Table id="tbl" rows="{ path: '/' }" selectionMode="None" rowHeight="33" enableBusyIndicator="true" enableColumnReordering="true">
+        
+        <!-- Tabella con visibleRowCount per rimuovere doppio scroll -->
+        <t:Table 
+          id="tbl" 
+          rows="{ path: '/' }" 
+          selectionMode="None" 
+          visibleRowCount="15"
+          visibleRowCountMode="Fixed"
+          rowHeight="33" 
+          enableBusyIndicator="true" 
+          enableColumnReordering="true"
+          width="100%">
 
           <t:columns>
             <t:Column width="110px" sortProperty="fioriId" filterProperty="fioriId">
@@ -76,21 +88,13 @@
                 <Text text="{businessEntity}" wrapping="false"/>
               </t:template>
             </t:Column>
+            
             <t:Column width="160px" sortProperty="segwProject" filterProperty="segwProject">
               <Label text="SEGW Project"/>
               <t:template>
                 <Text text="{segwProject}" wrapping="false"/>
               </t:template>
             </t:Column>
-
-<!--
-            <t:Column width="90px" hAlign="Center" sortProperty="odataVersion" filterProperty="odataVersion">
-              <Label text="OData"/>
-              <t:template>
-                <Text text="{odataVersion}"/>
-              </t:template>
-            </t:Column>
--->
           
             <t:Column width="140px" hAlign="Center" sortProperty="fpmExtended" filterProperty="fpmExtended">
               <Label text="FPM Extended"/>
@@ -108,6 +112,22 @@
           </t:columns>
         </t:Table>
       </VBox>
+      
+      <!-- Footer con riferimento GitHub -->
+      <footer>
+        <Toolbar>
+          <ToolbarSpacer/>
+          <Text text="Developed by Alessandro Spadoni"/>
+          <ToolbarSpacer width="1rem"/>
+          <Link 
+            text="View on GitHub" 
+            href="https://github.com/alespad/s4-fiori-model-analyzer" 
+            target="_blank"/>
+          <ToolbarSpacer width="1rem"/>
+          <Text text="© 2025 - SAP Inside Track Rome"/>
+          <ToolbarSpacer/>
+        </Toolbar>
+      </footer>
     </Page>
   </App>
 </mvc:View>
