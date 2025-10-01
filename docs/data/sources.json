@@ -1,5 +1,5 @@
 {
   "sources": [
-    { "id": "s4h2023fps2", "label": "S/4HANA 2023 FPS02", "file": "data/FioriProgrammingModel_S4H2023FPS03.json" }
+    { "id": "s4h2023fps3", "label": "S/4HANA 2023 FPS03", "file": "data/FioriProgrammingModel_S4H2023FPS03.json" }
   ]
 }
