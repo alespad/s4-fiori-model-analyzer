@@ -12,16 +12,12 @@
           </contentMiddle>
         </Bar>
       </customHeader>
-      
+
       <VBox class="sapUiSmallMargin">
         <!-- Preview Notice Banner -->
-        <MessageStrip
-          text="Preview Release. This analyzer is being showcased at SAP Inside Track Rome 2025. Results are preliminary and subject to refinement."
-          type="Information"
-          showIcon="true"
-          class="sapUiMediumMarginBottom">
+        <MessageStrip text="Preview Release. This analyzer is being showcased at SAP Inside Track Rome 2025. Results are preliminary and subject to refinement." type="Information" showIcon="true" class="sapUiMediumMarginBottom">
         </MessageStrip>
-        
+
         <Toolbar class="sapUiTinyMarginBottom">
           <Label text="Source:"/>
           <Select id="selSource" change="onSourceChange" width="260px" items="{path: '/sources'}">
@@ -47,16 +43,8 @@
           <ToolbarSpacer width="1rem"/>
           <Button text="Clear" press="onClear"/>
         </Toolbar>
-     
-        <t:Table 
-          id="tbl" 
-          rows="{ path: '/' }" 
-          selectionMode="None" 
-          visibleRowCount="10"
-          rowHeight="33" 
-          enableBusyIndicator="true" 
-          enableColumnReordering="true"
-          width="100%">
+
+        <t:Table id="tbl" rows="{ path: '/' }" selectionMode="None" visibleRowCount="10" rowHeight="33" enableBusyIndicator="true" enableColumnReordering="true" width="100%">
 
           <t:columns>
             <t:Column width="110px" sortProperty="fioriId" filterProperty="fioriId">
@@ -86,14 +74,14 @@
                 <Text text="{businessEntity}" wrapping="false"/>
               </t:template>
             </t:Column>
-            
+
             <t:Column width="260px" sortProperty="segwProject" filterProperty="segwProject">
               <Label text="SEGW Project"/>
               <t:template>
                 <Text text="{segwProject}" wrapping="false"/>
               </t:template>
             </t:Column>
-          
+
             <t:Column width="140px" hAlign="Center" sortProperty="fpmExtended" filterProperty="fpmExtended">
               <Label text="FPM Extended"/>
               <t:template>
@@ -110,17 +98,13 @@
           </t:columns>
         </t:Table>
       </VBox>
-      
-      
+
+
       <footer>
         <Toolbar>
+          <Link text="View on GitHub" href="https://github.com/alespad/s4-fiori-model-analyzer" target="_blank"/>
           <ToolbarSpacer/>
-          <Link 
-            text="View on GitHub" 
-            href="https://github.com/alespad/s4-fiori-model-analyzer" 
-            target="_blank"/>
-          <Text text="SAP Inside Track Rome 2025"/>
-          <ToolbarSpacer/>
+          <Text text="Independent community project - Not affiliated with SAP SE"/>
         </Toolbar>
       </footer>
     </Page>
