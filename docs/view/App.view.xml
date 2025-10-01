@@ -47,14 +47,12 @@
           <ToolbarSpacer width="1rem"/>
           <Button text="Clear" press="onClear"/>
         </Toolbar>
-        
-        <!-- Tabella con visibleRowCount per rimuovere doppio scroll -->
+     
         <t:Table 
           id="tbl" 
           rows="{ path: '/' }" 
           selectionMode="None" 
-          visibleRowCount="15"
-          visibleRowCountMode="Fixed"
+          visibleRowCount="10"
           rowHeight="33" 
           enableBusyIndicator="true" 
           enableColumnReordering="true"
@@ -89,7 +87,7 @@
               </t:template>
             </t:Column>
             
-            <t:Column width="160px" sortProperty="segwProject" filterProperty="segwProject">
+            <t:Column width="260px" sortProperty="segwProject" filterProperty="segwProject">
               <Label text="SEGW Project"/>
               <t:template>
                 <Text text="{segwProject}" wrapping="false"/>
@@ -106,25 +104,22 @@
             <t:Column width="120px" hAlign="Center">
               <Label text="Fiori Library"/>
               <t:template>
-                <Link text="Open" href="{link}" target="_blank"/>
+                <Link text="Open" href="{libraryLink}" target="_blank"/>
               </t:template>
             </t:Column>
           </t:columns>
         </t:Table>
       </VBox>
       
-      <!-- Footer con riferimento GitHub -->
+      
       <footer>
         <Toolbar>
           <ToolbarSpacer/>
-          <Text text="Developed by Alessandro Spadoni"/>
-          <ToolbarSpacer width="1rem"/>
           <Link 
             text="View on GitHub" 
             href="https://github.com/alespad/s4-fiori-model-analyzer" 
             target="_blank"/>
-          <ToolbarSpacer width="1rem"/>
-          <Text text="© 2025 - SAP Inside Track Rome"/>
+          <Text text="SAP Inside Track Rome 2025"/>
           <ToolbarSpacer/>
         </Toolbar>
       </footer>
