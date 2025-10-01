@@ -1,0 +1,29 @@
+{
+  "sap.app": {
+    "id": "s4.fiori.model.analyzer",
+    "type": "application",
+    "title": "Fiori Programming Model Analyzer for S/4HANA",
+    "dataSources": {
+      "sources": {
+        "type": "JSON",
+        "uri": "data/sources.json"
+      }
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "s4.fiori.model.analyzer.view.App",
+      "type": "XML",
+      "id": "App"
+    },
+    "dependencies": {
+      "libs": {
+        "sap.m": {},
+        "sap.ui.table": {}
+      }
+    },
+    "models": {
+      "": { "type": "sap.ui.model.json.JSONModel" }
+    }
+  }
+}

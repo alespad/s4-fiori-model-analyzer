@@ -1,0 +1,22 @@
+[
+  {
+    "fioriId": "F148A",
+    "appName": "Process Purchase Requisition",
+    "link": "https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/?appId=F148A",
+    "mainServiceName": "MM_PUR_PROCESS_PR_V4",
+    "odataVersion": "4.0",
+    "programmingModel": "RAP",
+    "businessEntity": "I_PURREQNITEMEXTTP",
+    "fpmEnhanced": "Yes"
+  },
+  {
+    "fioriId": "F0842A",
+    "appName": "Manage Purchase Orders Version 2",
+    "link": "https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/?appId=F0842A",
+    "mainServiceName": "MM_PUR_PO_MAINT_V2_SRV",
+    "odataVersion": "2.0",
+    "programmingModel": "BOPF",
+    "businessEntity": "I_PURCHASEORDERTP",
+    "fpmEnhanced": "No"
+  }
+]

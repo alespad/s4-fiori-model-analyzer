@@ -1,0 +1,12 @@
+{
+  "name": "s4-fiori-model-analyzer",
+  "version": "1.0.0",
+  "description": "Fiori Programming Model Analyzer for S/4HANA - Viewer (SAPUI5 static app)",
+  "scripts": {
+    "start": "serve docs",
+    "build": "echo 'Nothing to build - static app'"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
