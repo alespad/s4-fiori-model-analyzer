@@ -83,7 +83,7 @@
             </t:Column>
 
             <t:Column width="140px" hAlign="Center" sortProperty="fpmExtended" filterProperty="fpmExtended">
-              <Label text="FPM Extended"/>
+              <Label text="Fiori Elements Extended"/>
               <t:template>
                 <ObjectStatus text="{fpmExtended}" state="{= ${fpmExtended} === 'Yes' ? 'Success' : ${fpmExtended} === 'No' ? 'Error' : 'None' }"/>
               </t:template>
