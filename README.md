@@ -25,7 +25,7 @@ This Viewer lets you **browse, filter, and explore** the results in a user-frien
 
 ## Features
 
-- 📂 Select the **data source** (release-specific JSON file, e.g. `s4h2023fps3.json`)  
+- 📂 Select the **data source** (release-specific JSON file, check data/sources.json)  
 - 🔍 Filter by **Fiori Library ID** or **App name**  
 - 📊 Tabular view built with **sap.ui.table.Table**  
 - 🔗 Direct link to the Fiori Apps Library entry  
