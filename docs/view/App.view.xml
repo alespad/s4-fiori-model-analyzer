@@ -33,7 +33,7 @@
           <Label text="Prog. Model:"/>
           <Select id="selProgModel" change="onFilter" width="150px">
             <core:Item key="" text="All"/>
-            <core:Item key="SEGW Free Style" text="SEGW Free Style"/>
+            <core:Item key="N/A" text="N/A"/>
             <core:Item key="BOPF" text="BOPF"/>
             <core:Item key="RAP" text="RAP"/>
           </Select>
