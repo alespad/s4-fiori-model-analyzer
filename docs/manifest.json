@@ -23,7 +23,13 @@
       }
     },
     "models": {
-      "": { "type": "sap.ui.model.json.JSONModel" }
+      "": { "type": "sap.ui.model.json.JSONModel" },
+      "i18n": { 
+        "type": "sap.ui.model.resource.ResourceModel", 
+        "settings": {
+          "bundleName": "s4.fiori.model.analyzer.i18n.i18n"
+        }
+      }
     }
   }
 }

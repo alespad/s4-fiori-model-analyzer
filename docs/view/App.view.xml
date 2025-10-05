@@ -8,91 +8,91 @@
       <customHeader>
         <Bar class="sapUiSmallMarginBegin">
           <contentMiddle>
-            <Title text="Fiori Programming Model Analyzer for S/4HANA" level="H2"/>
+            <Title text="{i18n>appTitle}" level="H2"/>
           </contentMiddle>
         </Bar>
       </customHeader>
 
       <VBox class="sapUiSmallMargin">
         <!-- Preview Notice Banner -->
-        <MessageStrip text="Preview Release. This analyzer is being showcased at SAP Inside Track Rome 2025. Results are preliminary and subject to refinement." type="Information" showIcon="true" class="sapUiMediumMarginBottom">
+        <MessageStrip text="{i18n>previewMessage}" type="Information" showIcon="true" class="sapUiMediumMarginBottom">
         </MessageStrip>
 
         <Toolbar class="sapUiTinyMarginBottom">
-          <Label text="Source:"/>
+          <Label text="{i18n>labelSource}"/>
           <Select id="selSource" change="onSourceChange" width="260px" items="{path: '/sources'}">
             <core:Item key="{file}" text="{label}" />
           </Select>
           <ToolbarSpacer width="1rem"/>
-          <Label text="Fiori ID:"/>
+          <Label text="{i18n>labelFioriId}"/>
           <Input id="inpFioriId" liveChange="onFilter" width="150px"/>
           <ToolbarSpacer width="1rem"/>
-          <Label text="App Name:"/>
+          <Label text="{i18n>labelAppName}"/>
           <Input id="inpAppName" liveChange="onFilter" width="200px"/>
           <ToolbarSpacer width="1rem"/>
-          <Label text="Prog. Model:"/>
+          <Label text="{i18n>labelProgModel}"/>
           <Select id="selProgModel" change="onFilter" width="150px">
-            <core:Item key="" text="All"/>
-            <core:Item key="N/A" text="N/A"/>
-            <core:Item key="BOPF" text="BOPF"/>
-            <core:Item key="RAP" text="RAP"/>
+            <core:Item key="" text="{i18n>optionAll}"/>
+            <core:Item key="N/A" text="{i18n>optionNA}"/>
+            <core:Item key="BOPF" text="{i18n>optionBOPF}"/>
+            <core:Item key="RAP" text="{i18n>optionRAP}"/>
           </Select>
           <ToolbarSpacer width="1rem"/>
-          <Label text="Entity:"/>
+          <Label text="{i18n>labelEntity}"/>
           <Input id="inpEntity" liveChange="onFilter" width="180px"/>
           <ToolbarSpacer width="1rem"/>
-          <Button text="Clear" press="onClear"/>
+          <Button text="{i18n>buttonClear}" press="onClear"/>
         </Toolbar>
 
         <t:Table id="tbl" rows="{ path: '/' }" selectionMode="None" visibleRowCount="10" rowHeight="33" enableBusyIndicator="true" enableColumnReordering="true" width="100%">
 
           <t:columns>
             <t:Column width="110px" sortProperty="fioriId" filterProperty="fioriId">
-              <Label text="Fiori ID"/>
+              <Label text="{i18n>headerFioriId}"/>
               <t:template>
                 <Text text="{fioriId}"/>
               </t:template>
             </t:Column>
 
             <t:Column width="280px" sortProperty="appName" filterProperty="appName">
-              <Label text="App Name"/>
+              <Label text="{i18n>headerAppName}"/>
               <t:template>
                 <Text text="{appName}" wrapping="false"/>
               </t:template>
             </t:Column>
 
             <t:Column width="150px" sortProperty="programmingModel" filterProperty="programmingModel">
-              <Label text="Prog. Model"/>
+              <Label text="{i18n>headerProgModel}"/>
               <t:template>
                 <Text text="{programmingModel}"/>
               </t:template>
             </t:Column>
 
             <t:Column width="260px" sortProperty="businessEntity" filterProperty="businessEntity">
-              <Label text="Entity"/>
+              <Label text="{i18n>headerEntity}"/>
               <t:template>
                 <Text text="{businessEntity}" wrapping="false"/>
               </t:template>
             </t:Column>
 
             <t:Column width="260px" sortProperty="segwProject" filterProperty="segwProject">
-              <Label text="SEGW Project"/>
+              <Label text="{i18n>headerSegwProject}"/>
               <t:template>
                 <Text text="{segwProject}" wrapping="false"/>
               </t:template>
             </t:Column>
 
             <t:Column width="200px" hAlign="Center" sortProperty="fpmExtended" filterProperty="fpmExtended">
-              <Label text="Fiori Elements Extended"/>
+              <Label text="{i18n>headerFioriElementsExtended}"/>
               <t:template>
                 <ObjectStatus text="{fpmExtended}" state="{= ${fpmExtended} === 'Yes' ? 'Success' : ${fpmExtended} === 'No' ? 'Error' : 'None' }"/>
               </t:template>
             </t:Column>
 
             <t:Column width="120px" hAlign="Center">
-              <Label text="Fiori Library"/>
+              <Label text="{i18n>headerFioriLibrary}"/>
               <t:template>
-                <Link text="Open" href="{libraryLink}" target="_blank"/>
+                <Link text="{i18n>linkOpen}" href="{libraryLink}" target="_blank"/>
               </t:template>
             </t:Column>
           </t:columns>
@@ -102,9 +102,9 @@
 
       <footer>
         <Toolbar>
-          <Link text="View on GitHub" href="https://github.com/alespad/s4-fiori-model-analyzer" target="_blank"/>
+          <Link text="{i18n>linkGitHub}" href="https://github.com/alespad/s4-fiori-model-analyzer" target="_blank"/>
           <ToolbarSpacer/>
-          <Text text="Independent community project - Not affiliated with SAP SE"/>
+          <Text text="{i18n>footerText}"/>
         </Toolbar>
       </footer>
     </Page>
