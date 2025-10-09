@@ -20,23 +20,22 @@
 
         <Toolbar class="sapUiTinyMarginBottom">
           <Label text="{i18n>labelSource}"/>
-          <Select id="selSource" change="onSourceChange" width="260px" items="{path: '/sources'}">
+          <Select id="selSource" change="onSourceChange" width="200px" items="{path: '/sources'}">
             <core:Item key="{file}" text="{label}" />
           </Select>
           <ToolbarSpacer width="1rem"/>
           <Label text="{i18n>labelFioriId}"/>
-          <Input id="inpFioriId" liveChange="onFilter" width="150px"/>
+          <Input id="inpFioriId" liveChange="onFilter" width="120px"/>
           <ToolbarSpacer width="1rem"/>
           <Label text="{i18n>labelAppName}"/>
-          <Input id="inpAppName" liveChange="onFilter" width="200px"/>
+          <Input id="inpAppName" liveChange="onFilter" width="180px"/>
           <ToolbarSpacer width="1rem"/>
           <Label text="{i18n>labelProgModel}"/>
-          <Select id="selProgModel" change="onFilter" width="150px">
-            <core:Item key="" text="{i18n>optionAll}"/>
-            <core:Item key="N/A" text="{i18n>optionNA}"/>
-            <core:Item key="BOPF" text="{i18n>optionBOPF}"/>
+          <MultiComboBox id="selProgModel" selectionChange="onFilter" width="200px">
             <core:Item key="RAP" text="{i18n>optionRAP}"/>
-          </Select>
+            <core:Item key="BOPF" text="{i18n>optionBOPF}"/>
+            <core:Item key="N/A" text="{i18n>optionNA}"/>
+          </MultiComboBox>
           <ToolbarSpacer width="1rem"/>
           <Label text="{i18n>labelEntity}"/>
           <Input id="inpEntity" liveChange="onFilter" width="180px"/>

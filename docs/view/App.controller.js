@@ -23,6 +23,10 @@ sap.ui.define(
         // Model table
         this._dataModel = new JSONModel([]);
         this.getView().byId("tbl").setModel(this._dataModel);
+        
+        // Set default selected values for Programming Model filter (RAP and BOPF)
+        const progModelCombo = this.getView().byId("selProgModel");
+        progModelCombo.setSelectedKeys(["RAP", "BOPF"]);
       },
       
       // Reusable helper
@@ -52,7 +56,7 @@ sap.ui.define(
       onFilter: function () {
         const id = (this.byId("inpFioriId").getValue() || "").trim();
         const app = (this.byId("inpAppName").getValue() || "").trim();
-        const model = this.byId("selProgModel").getSelectedKey();
+        const models = this.byId("selProgModel").getSelectedKeys();
         const entity = (this.byId("inpEntity").getValue() || "").trim();
         
         const aFilters = [];
@@ -63,8 +67,12 @@ sap.ui.define(
         if (app) { 
           aFilters.push(new Filter("appName", FilterOperator.Contains, app)); 
         }
-        if (model) { 
-          aFilters.push(new Filter("programmingModel", FilterOperator.EQ, model)); 
+        if (models && models.length > 0) {
+          // Create OR filter for multiple programming models
+          const modelFilters = models.map(function(model) {
+            return new Filter("programmingModel", FilterOperator.EQ, model);
+          });
+          aFilters.push(new Filter({ filters: modelFilters, and: false }));
         }
         if (entity) { 
           aFilters.push(new Filter("businessEntity", FilterOperator.Contains, entity)); 
@@ -79,7 +87,7 @@ sap.ui.define(
       onClear: function() {
         this.byId("inpFioriId").setValue("");
         this.byId("inpAppName").setValue("");
-        this.byId("selProgModel").setSelectedKey("");
+        this.byId("selProgModel").setSelectedKeys(["RAP", "BOPF"]);
         this.byId("inpEntity").setValue("");
         this.onFilter();
       }
