@@ -1,0 +1,111 @@
+<mvc:View controllerName="s4.fiori.model.analyzer.view.Home"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+  xmlns:t="sap.ui.table">
+  <Page>
+    <customHeader>
+      <Bar class="sapUiSmallMarginBegin">
+        <contentMiddle>
+          <Title text="{i18n>appTitle}" level="H2"/>
+        </contentMiddle>
+        <contentRight>
+          <Button icon="sap-icon://compare" text="{i18n>buttonCompare}" press="onNavigateToCompare"/>
+        </contentRight>
+      </Bar>
+    </customHeader>
+
+    <VBox class="sapUiSmallMargin">
+      <!-- Preview Notice Banner -->
+      <MessageStrip text="{i18n>previewMessage}" type="Information" showIcon="true" class="sapUiMediumMarginBottom">
+      </MessageStrip>
+
+      <Toolbar class="sapUiTinyMarginBottom">
+        <Label text="{i18n>labelSource}"/>
+        <Select id="selSource" change="onSourceChange" width="260px" items="{path: '/sources'}">
+          <core:Item key="{file}" text="{label}" />
+        </Select>
+        <ToolbarSpacer width="1rem"/>
+        <Label text="{i18n>labelFioriId}"/>
+        <Input id="inpFioriId" liveChange="onFilter" width="150px"/>
+        <ToolbarSpacer width="1rem"/>
+        <Label text="{i18n>labelAppName}"/>
+        <Input id="inpAppName" liveChange="onFilter" width="200px"/>
+        <ToolbarSpacer width="1rem"/>
+        <Label text="{i18n>labelProgModel}"/>
+        <MultiComboBox id="selProgModel" selectionChange="onFilter" width="200px">
+          <core:Item key="RAP" text="{i18n>optionRAP}"/>
+          <core:Item key="BOPF" text="{i18n>optionBOPF}"/>
+          <core:Item key="N/A" text="{i18n>optionNA}"/>
+        </MultiComboBox>
+        <ToolbarSpacer width="1rem"/>
+        <Label text="{i18n>labelEntity}"/>
+        <Input id="inpEntity" liveChange="onFilter" width="180px"/>
+        <ToolbarSpacer width="1rem"/>
+        <Button text="{i18n>buttonClear}" press="onClear"/>
+      </Toolbar>
+
+      <t:Table id="tbl" rows="{ path: '/' }" selectionMode="None" visibleRowCount="10" rowHeight="33" enableBusyIndicator="true" enableColumnReordering="true" width="100%">
+
+        <t:columns>
+          <t:Column width="110px" sortProperty="fioriId" filterProperty="fioriId">
+            <Label text="{i18n>headerFioriId}"/>
+            <t:template>
+              <Text text="{fioriId}"/>
+            </t:template>
+          </t:Column>
+
+          <t:Column width="280px" sortProperty="appName" filterProperty="appName">
+            <Label text="{i18n>headerAppName}"/>
+            <t:template>
+              <Text text="{appName}" wrapping="false"/>
+            </t:template>
+          </t:Column>
+
+          <t:Column width="150px" sortProperty="programmingModel" filterProperty="programmingModel">
+            <Label text="{i18n>headerProgModel}"/>
+            <t:template>
+              <Text text="{programmingModel}"/>
+            </t:template>
+          </t:Column>
+
+          <t:Column width="260px" sortProperty="businessEntity" filterProperty="businessEntity">
+            <Label text="{i18n>headerEntity}"/>
+            <t:template>
+              <Text text="{businessEntity}" wrapping="false"/>
+            </t:template>
+          </t:Column>
+
+          <t:Column width="260px" sortProperty="segwProject" filterProperty="segwProject">
+            <Label text="{i18n>headerSegwProject}"/>
+            <t:template>
+              <Text text="{segwProject}" wrapping="false"/>
+            </t:template>
+          </t:Column>
+
+          <t:Column width="200px" hAlign="Center" sortProperty="fpmExtended" filterProperty="fpmExtended">
+            <Label text="{i18n>headerFioriElementsExtended}"/>
+            <t:template>
+              <ObjectStatus text="{fpmExtended}" state="{= ${fpmExtended} === 'Yes' ? 'Success' : ${fpmExtended} === 'No' ? 'Error' : 'None' }"/>
+            </t:template>
+          </t:Column>
+
+          <t:Column width="120px" hAlign="Center">
+            <Label text="{i18n>headerFioriLibrary}"/>
+            <t:template>
+              <Link text="{i18n>linkOpen}" href="{libraryLink}" target="_blank"/>
+            </t:template>
+          </t:Column>
+        </t:columns>
+      </t:Table>
+    </VBox>
+
+    <footer>
+      <Toolbar>
+        <Link text="{i18n>linkGitHub}" href="https://github.com/alespad/s4-fiori-model-analyzer" target="_blank"/>
+        <ToolbarSpacer/>
+        <Text text="{i18n>footerText}"/>
+      </Toolbar>
+    </footer>
+  </Page>
+</mvc:View>

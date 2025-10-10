@@ -30,6 +30,38 @@
           "bundleName": "s4.fiori.model.analyzer.i18n.i18n"
         }
       }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "s4.fiori.model.analyzer.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "home",
+          "target": "home"
+        },
+        {
+          "pattern": "compare",
+          "name": "compare",
+          "target": "compare"
+        }
+      ],
+      "targets": {
+        "home": {
+          "viewName": "Home",
+          "viewLevel": 1
+        },
+        "compare": {
+          "viewName": "Compare",
+          "viewLevel": 2
+        }
+      }
     }
   }
 }

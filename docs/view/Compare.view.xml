@@ -1,0 +1,150 @@
+<mvc:View controllerName="s4.fiori.model.analyzer.view.Compare"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+  xmlns:t="sap.ui.table">
+  <Page title="{i18n>compareTitle}" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <VBox class="sapUiSmallMargin">
+        <!-- Selection Toolbar -->
+        <Toolbar class="sapUiMediumMarginBottom">
+          <Label text="{i18n>labelSourceFrom}" class="sapUiTinyMarginEnd"/>
+          <Select id="selSource1" change="onSourceSelect" width="250px" items="{path: '/sources'}">
+            <core:Item key="{file}" text="{label}" />
+          </Select>
+          <core:Icon src="sap-icon://arrow-right" class="sapUiTinyMargin" color="#0070F2"/>
+          <Label text="{i18n>labelSourceTo}" class="sapUiTinyMarginEnd"/>
+          <Select id="selSource2" change="onSourceSelect" width="250px" items="{path: '/sources'}">
+            <core:Item key="{file}" text="{label}" />
+          </Select>
+          <ToolbarSpacer/>
+          <Button text="{i18n>buttonCompare}" press="onCompare" type="Emphasized" icon="sap-icon://compare"/>
+        </Toolbar>
+
+        <!-- Filter Toolbar -->
+        <Toolbar class="sapUiSmallMarginBottom" visible="{/showResults}">
+          <Label text="{i18n>labelShowOnly}" class="sapUiTinyMarginEnd"/>
+          <SegmentedButton selectedKey="{/filterType}" selectionChange="onFilterChange">
+            <items>
+              <SegmentedButtonItem key="all" text="{i18n>filterAll}"/>
+              <SegmentedButtonItem key="removed" text="{i18n>filterRemoved}" icon="sap-icon://less"/>
+              <SegmentedButtonItem key="changed" text="{i18n>filterChanged}" icon="sap-icon://edit"/>
+              <SegmentedButtonItem key="new" text="{i18n>filterNew}" icon="sap-icon://add"/>
+            </items>
+          </SegmentedButton>
+          <ToolbarSpacer/>
+          <Text text="{i18n>labelTotalResults}: {/filteredCount}" class="sapUiTinyMarginEnd"/>
+        </Toolbar>
+
+        <!-- Legend -->
+        <HBox class="sapUiSmallMarginBottom" visible="{/showResults}">
+          <VBox class="sapUiSmallMarginEnd">
+            <HBox alignItems="Center">
+              <core:Icon src="sap-icon://less" color="#BB0000" class="sapUiTinyMarginEnd"/>
+              <Text text="{i18n>legendRemoved}"/>
+            </HBox>
+          </VBox>
+          <VBox class="sapUiSmallMarginEnd">
+            <HBox alignItems="Center">
+              <core:Icon src="sap-icon://edit" color="#E78C07" class="sapUiTinyMarginEnd"/>
+              <Text text="{i18n>legendChanged}"/>
+            </HBox>
+          </VBox>
+          <VBox>
+            <HBox alignItems="Center">
+              <core:Icon src="sap-icon://add" color="#107E3E" class="sapUiTinyMarginEnd"/>
+              <Text text="{i18n>legendNew}"/>
+            </HBox>
+          </VBox>
+        </HBox>
+
+        <!-- Results Table -->
+        <t:Table id="tblCompare" 
+                 rows="{/compareResults}" 
+                 selectionMode="None" 
+                 visibleRowCount="10" 
+                 rowHeight="33" 
+                 enableBusyIndicator="true"
+                 enableColumnReordering="true"
+                 visible="{/showResults}">
+
+          <t:columns>
+            <!-- Change Type Icon -->
+            <t:Column width="50px" hAlign="Center">
+              <Label text=""/>
+              <t:template>
+                <core:Icon src="{changeIcon}" color="{changeColor}"/>
+              </t:template>
+            </t:Column>
+
+            <!-- Fiori ID -->
+            <t:Column width="110px" sortProperty="fioriId" filterProperty="fioriId">
+              <Label text="{i18n>headerFioriId}"/>
+              <t:template>
+                <Text text="{fioriId}"/>
+              </t:template>
+            </t:Column>
+
+            <!-- App Name -->
+            <t:Column width="280px" sortProperty="appName" filterProperty="appName">
+              <Label text="{i18n>headerAppName}"/>
+              <t:template>
+                <Text text="{appName}" wrapping="false"/>
+              </t:template>
+            </t:Column>
+
+            <!-- Programming Model Source 1 -->
+            <t:Column width="180px" sortProperty="programmingModelSource1" filterProperty="programmingModelSource1">
+              <Label text="Prog. Model ({/source1Label})"/>
+              <t:template>
+                <Text text="{programmingModelSource1}"/>
+              </t:template>
+            </t:Column>
+
+            <!-- Programming Model Source 2 -->
+            <t:Column width="180px" sortProperty="programmingModelSource2" filterProperty="programmingModelSource2">
+              <Label text="Prog. Model ({/source2Label})"/>
+              <t:template>
+                <Text text="{programmingModelSource2}" 
+                      class="{= ${programmingModelSource1} !== ${programmingModelSource2} &amp;&amp; ${programmingModelSource2} !== '-' ? 'sapUiHighlight' : ''}"/>
+              </t:template>
+            </t:Column>
+
+            <!-- Business Entity Source 1 -->
+            <t:Column width="200px" sortProperty="businessEntitySource1" filterProperty="businessEntitySource1">
+              <Label text="Entity ({/source1Label})"/>
+              <t:template>
+                <Text text="{businessEntitySource1}" wrapping="false"/>
+              </t:template>
+            </t:Column>
+
+            <!-- Business Entity Source 2 -->
+            <t:Column width="200px" sortProperty="businessEntitySource2" filterProperty="businessEntitySource2">
+              <Label text="Entity ({/source2Label})"/>
+              <t:template>
+                <Text text="{businessEntitySource2}" 
+                      wrapping="false"
+                      class="{= ${businessEntitySource1} !== ${businessEntitySource2} &amp;&amp; ${businessEntitySource2} !== '-' ? 'sapUiHighlight' : ''}"/>
+              </t:template>
+            </t:Column>
+
+            <!-- Fiori Library Link -->
+            <t:Column width="100px" hAlign="Center">
+              <Label text="{i18n>headerFioriLibrary}"/>
+              <t:template>
+                <Link text="{i18n>linkOpen}" href="{libraryLink}" target="_blank"/>
+              </t:template>
+            </t:Column>
+          </t:columns>
+        </t:Table>
+
+        <!-- Empty State -->
+        <VBox alignItems="Center" justifyContent="Center" class="sapUiLargeMarginTop" visible="{= !${/showResults}}">
+          <core:Icon src="sap-icon://compare" size="4rem" color="#0070F2" class="sapUiMediumMarginBottom"/>
+          <Title text="{i18n>emptyStateTitle}" level="H3"/>
+          <Text text="{i18n>emptyStateText}" class="sapUiTinyMarginTop"/>
+        </VBox>
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>
