@@ -10,7 +10,7 @@
           <Title text="{i18n>appTitle}" level="H2"/>
         </contentMiddle>
         <contentRight>
-          <Button icon="sap-icon://compare" text="{i18n>buttonCompare}" press="onNavigateToCompare"/>
+        <!--  <Button icon="sap-icon://compare" text="{i18n>buttonCompare}" press="onNavigateToCompare"/> -->
         </contentRight>
       </Bar>
     </customHeader>
