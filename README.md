@@ -8,7 +8,6 @@ the datasets generated internally by the analyzer ABAP report (not yet available
 
 👉 Live demo: [Viewer on GitHub Pages](https://alespad.github.io/s4-fiori-model-analyzer/)
 
----
 
 ## Background
 
@@ -28,8 +27,6 @@ As ABAP/Fiori developers we often ask ourselves:
 
 This Viewer lets you **browse, filter, and explore** the results in a user-friendly way.
 
----
-
 ## Features
 
 - 📂 Select the **data source** (release-specific JSON file, check data/sources.json)  
@@ -37,7 +34,6 @@ This Viewer lets you **browse, filter, and explore** the results in a user-frien
 - 🔗 Direct link to the Fiori Apps Library entry  
 - 📥 Downloadable CSV/JSON datasets (see `/docs/data/`)
 
----
 ## Using Your Own Data
 
 Have you generated data on your S/4HANA system using the related project **ABAP Generator** (TBD)?
