@@ -10,6 +10,13 @@ the datasets generated internally by the analyzer ABAP report (not yet available
 
 ---
 
+## Background
+
+The story and reference for this project can be found in this **SAP Community blog post**:  
+[Is It RAP or BOPF? Fiori Programming Model Analyzer for S/4HANA](https://community.sap.com/t5/abap-blog-posts/is-it-rap-or-bopf-fiori-programming-model-analyzer-for-s-4hana/ba-p/14240651)
+
+---
+
 ## What is this?
 
 As ABAP/Fiori developers we often ask ourselves:
@@ -26,10 +33,32 @@ This Viewer lets you **browse, filter, and explore** the results in a user-frien
 ## Features
 
 - 📂 Select the **data source** (release-specific JSON file, check data/sources.json)  
-- 🔍 Filter by **Fiori Library ID** or **App name**  
-- 📊 Tabular view built with **sap.ui.table.Table**  
+- 🔍 Filter by **Fiori Library ID**  **App name** **Entity name** or **Programming Model**
 - 🔗 Direct link to the Fiori Apps Library entry  
 - 📥 Downloadable CSV/JSON datasets (see `/docs/data/`)
+
+---
+## Using Your Own Data
+
+Have you generated data on your S/4HANA system using the related project **ABAP Generator** (TBD)?
+
+### Steps to add your custom dataset:
+
+1. **Generate the JSON/CSV file** using the ABAP Generator on your system
+2. **Copy the generated JSON file** to the `docs/data/` folder
+3. **Update `docs/data/sources.json`** to register your new dataset:
+```json
+{
+  "sources": [
+    {
+      "id": "my-system",
+      "label": "My S/4HANA System",
+      "file": "data/my-system-results.json"
+    }
+  ]
+}
+
+---
 
 ## Run locally
 
