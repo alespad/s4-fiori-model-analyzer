@@ -33,7 +33,7 @@ This Viewer lets you **browse, filter, and explore** the results in a user-frien
 ## Features
 
 - 📂 Select the **data source** (release-specific JSON file, check data/sources.json)  
-- 🔍 Filter by **Fiori Library ID**  **App name** **Entity name** or **Programming Model**
+- 🔍 Filter by **Fiori Library ID**,  **App name**, **Entity name** or **Programming Model**
 - 🔗 Direct link to the Fiori Apps Library entry  
 - 📥 Downloadable CSV/JSON datasets (see `/docs/data/`)
 
@@ -57,8 +57,7 @@ Have you generated data on your S/4HANA system using the related project **ABAP 
     }
   ]
 }
-
----
+```
 
 ## Run locally
 
