@@ -22,27 +22,23 @@
 
       <Toolbar class="sapUiTinyMarginBottom">
         <Label text="{i18n>labelSource}"/>
-        <Select id="selSource" change="onSourceChange" width="260px" items="{path: '/sources'}">
+        <Select id="selSource" change="onSourceChange" width="240px" items="{path: '/sources'}">
           <core:Item key="{file}" text="{label}" />
         </Select>
-        <ToolbarSpacer width="1rem"/>
-        <Label text="{i18n>labelFioriId}"/>
-        <Input id="inpFioriId" liveChange="onFilter" width="150px"/>
-        <ToolbarSpacer width="1rem"/>
-        <Label text="{i18n>labelAppName}"/>
-        <Input id="inpAppName" liveChange="onFilter" width="200px"/>
-        <ToolbarSpacer width="1rem"/>
-        <Label text="{i18n>labelProgModel}"/>
-        <MultiComboBox id="selProgModel" selectionChange="onFilter" width="200px">
+        <ToolbarSpacer width="0.5rem"/>
+        <Input id="inpFioriId" liveChange="onFilter" width="130px" placeholder="{i18n>placeholderFioriId}"/>
+        <ToolbarSpacer width="0.5rem"/>
+        <Input id="inpAppName" liveChange="onFilter" width="180px" placeholder="{i18n>placeholderAppName}"/>
+        <ToolbarSpacer width="0.5rem"/>
+        <MultiComboBox id="selProgModel" selectionChange="onFilter" width="150px" placeholder="{i18n>placeholderProgModel}">
           <core:Item key="RAP" text="{i18n>optionRAP}"/>
           <core:Item key="BOPF" text="{i18n>optionBOPF}"/>
           <core:Item key="N/A" text="{i18n>optionNA}"/>
         </MultiComboBox>
-        <ToolbarSpacer width="1rem"/>
-        <Label text="{i18n>labelEntity}"/>
-        <Input id="inpEntity" liveChange="onFilter" width="180px"/>
-        <ToolbarSpacer width="1rem"/>
-        <Button text="{i18n>buttonClear}" press="onClear"/>
+        <ToolbarSpacer width="0.5rem"/>
+        <Input id="inpEntity" liveChange="onFilter" width="160px" placeholder="{i18n>placeholderEntity}"/>
+        <ToolbarSpacer/>
+        <Button text="{i18n>buttonClear}" press="onClear" icon="sap-icon://clear-filter"/>
       </Toolbar>
 
       <t:Table id="tbl" rows="{ path: '/' }" selectionMode="None" visibleRowCount="10" rowHeight="33" enableBusyIndicator="true" enableColumnReordering="true" width="100%">
