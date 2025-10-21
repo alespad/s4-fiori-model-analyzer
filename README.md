@@ -36,7 +36,7 @@ This Viewer lets you **browse, filter, and explore** the results in a user-frien
 
 ## Using Your Own Data
 
-Have you generated data on your S/4HANA system using the related project **ABAP Generator** (TBD)?
+Have you generated data on your S/4HANA system using the related project [**ABAP Generator**](https://github.com/alespad/s4-fiori-model-generator)?
 
 ### Steps to add your custom dataset:
 
